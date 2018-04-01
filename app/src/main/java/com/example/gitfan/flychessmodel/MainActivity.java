@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -124,8 +125,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 case SHOW_ACTION_LIST:
                 {
                     String actionlist = message.getData().getString("actionlist");
+                    showActionList.setInputType(InputType.TYPE_TEXT_FLAG_MULTI_LINE);
                     showActionList.setVisibility(View.VISIBLE);
                     showActionList.setText(actionlist);
+                    showActionList.setSingleLine(false);
+                    showActionList.setHorizontallyScrolling(false);
                     //showDice.setVisibility(View.INVISIBLE);
                     break;
                 }
@@ -202,7 +206,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 String actionlist = "";
                 for(Action action:gameManager.actionlist())
                 {
-                    actionlist += action.toString() + "<br>";
+                    actionlist += action.toString() + "\n";
                 }
 
                 message = new Message();
