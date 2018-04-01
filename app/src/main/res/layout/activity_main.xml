@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/activity_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        tools:context="com.example.gitfan.flychessmodel.MainActivity">
+
+    <Button
+            android:text="RED0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" android:id="@+id/red0"/>
+    <Button
+            android:text="RED1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/red0" android:id="@+id/red1"/>
+    <Button
+            android:text="RED2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/red1" android:id="@+id/red2"/>
+    <Button
+            android:text="RED3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/red2" android:id="@+id/red3"/>
+    <Button
+            android:text="YEL1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_alignTop="@+id/yellow0"
+            android:layout_toEndOf="@+id/yellow0" android:id="@+id/yellow1"/>
+    <Button
+            android:text="YEL2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/yellow2"
+            android:layout_alignBaseline="@+id/yellow1" android:layout_alignBottom="@+id/yellow1"
+            android:layout_toEndOf="@+id/yellow1"/>
+    <Button
+            android:text="YEL3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_alignTop="@+id/yellow2"
+            android:layout_toEndOf="@+id/yellow2" android:id="@+id/yellow3"/>
+    <Button
+            android:text="BLU1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_alignTop="@+id/blue0"
+            android:layout_toEndOf="@+id/blue0" android:id="@+id/blue1"/>
+    <Button
+            android:text="BLU2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_alignTop="@+id/blue1"
+            android:layout_toEndOf="@+id/blue1" android:id="@+id/blue2"/>
+    <Button
+            android:text="BLUE3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_alignBottom="@+id/blue2"
+            android:layout_alignParentEnd="true" android:id="@+id/blue3"/>
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:layout_alignBottom="@+id/thrownDice" android:layout_alignParentEnd="true"
+            android:id="@+id/showdice" android:text="骰子数目"/>
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="棋子的移动步骤"
+            android:ems="10"
+            android:id="@+id/actionLists" android:layout_alignStart="@+id/thrownDice"
+            android:layout_alignParentBottom="true" android:layout_alignParentEnd="true"
+            android:layout_below="@+id/showdice"/>
+    <Button
+            android:text="扔骰子"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/thrownDice"
+            android:layout_alignStart="@+id/turn" android:layout_below="@+id/turn"/>
+    <Button
+            android:text="GREEN0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/green0" android:layout_below="@+id/blue1" android:layout_alignParentStart="true"
+            android:layout_marginTop="35dp"/>
+    <Button
+            android:text="GREEN1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/green1" android:layout_alignBaseline="@+id/green0" android:layout_alignBottom="@+id/green0"
+            android:layout_toEndOf="@+id/green0"/>
+    <Button
+            android:text="GREEN2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/green2" android:layout_alignBaseline="@+id/green1" android:layout_alignBottom="@+id/green1"
+            android:layout_toEndOf="@+id/green1"/>
+    <Button
+            android:text="GREEN3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/green3" android:layout_alignBaseline="@+id/green2" android:layout_alignBottom="@+id/green2"
+            android:layout_alignParentEnd="true"/>
+    <Button
+            android:text="BLU0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/blue0"
+            android:layout_below="@+id/yellow0" android:layout_alignParentStart="true" android:layout_marginTop="22dp"/>
+    <Button
+            android:text="YEL0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="23dp" android:id="@+id/yellow0" android:layout_below="@+id/red0"
+            android:layout_alignParentStart="true"/>
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="现在轮到谁？"
+            android:ems="10"
+            android:layout_marginTop="18dp" android:id="@+id/turn"
+            android:layout_marginStart="15dp" android:layout_below="@+id/green0"
+            android:layout_alignParentStart="true"/>
+</RelativeLayout>
