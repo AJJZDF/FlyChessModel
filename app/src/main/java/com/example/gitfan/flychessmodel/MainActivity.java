@@ -202,7 +202,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 String actionlist = "";
                 for(Action action:gameManager.actionlist())
                 {
-                    actionlist += action.toString() + "\n";
+                    actionlist += action.toString() + "<br>";
                 }
 
                 message = new Message();

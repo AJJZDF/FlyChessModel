@@ -3,15 +3,6 @@
 
     <item
         is-multidex="false"
-        jar="/media/gitfan/Media/Chrome Files/FlyChessModel/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.3.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
-        <dex dex="/media/gitfan/Media/Chrome Files/FlyChessModel/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-25.3.1_a9c735ddeb1344c81a0ec8c6d878fd54af23536a.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="/media/gitfan/Media/Chrome Files/FlyChessModel/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.3.1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
@@ -21,48 +12,21 @@
     </item>
     <item
         is-multidex="false"
-        jar="/media/gitfan/Media/Chrome Files/FlyChessModel/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
-        <dex dex="/media/gitfan/Media/Chrome Files/FlyChessModel/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-25.3.1_64b843b9616ce4a4ad828f0249843e0ab5c58257.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/media/gitfan/Media/Chrome Files/FlyChessModel/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.3.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
-        <dex dex="/media/gitfan/Media/Chrome Files/FlyChessModel/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-25.3.1_e84aac8c12590503d60c7ce5ed75660a479fc113.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/media/gitfan/Media/Chrome Files/FlyChessModel/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.3.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
-        <dex dex="/media/gitfan/Media/Chrome Files/FlyChessModel/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-25.3.1_0c6ca5fcca51d77cabcba347bd4ffc00bd7cd10b.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/media/gitfan/Media/Chrome Files/FlyChessModel/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.3.1/jars/classes.jar"
+        jar="/media/gitfan/Media/Linux_Intellij_IDEA/FlyChessModel/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.3.1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
         sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="/media/gitfan/Media/Chrome Files/FlyChessModel/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-25.3.1_2e5f4a5dd6bf71454f9a1e78a85d6753a0fdab7d.jar" />
+        <dex dex="/media/gitfan/Media/Linux_Intellij_IDEA/FlyChessModel/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-25.3.1_4d68d8bfd1bb445159b96449ee8cdf3212d0e5ff.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/media/gitfan/Software/Linux-software/android-sdk-linux/extras/android/m2repository/com/android/support/support-annotations/25.3.1/support-annotations-25.3.1.jar"
+        jar="/media/gitfan/Media/Linux_Intellij_IDEA/FlyChessModel/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.3.1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
-        <dex dex="/media/gitfan/Media/Chrome Files/FlyChessModel/app/build/intermediates/pre-dexed/debug/support-annotations-25.3.1_5f5749d05c2e642940961917cf010b206a19a885.jar" />
+        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
+        <dex dex="/media/gitfan/Media/Linux_Intellij_IDEA/FlyChessModel/app/build/intermediates/pre-dexed/debug/com.android.support-support-compat-25.3.1_03f1a94b57c086046cbfa8f03b4d123d92c67552.jar" />
     </item>
     <item
         is-multidex="false"
@@ -90,6 +54,123 @@
         revision="25.0.2"
         sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
         <dex dex="/media/gitfan/Media/Chrome Files/FlyChessModel/app/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-25.3.1_75492f3d9d898cfecc3cc5e78b4cf40ed97f776c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/media/gitfan/Media/Linux_Intellij_IDEA/FlyChessModel/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.3.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
+        <dex dex="/media/gitfan/Media/Linux_Intellij_IDEA/FlyChessModel/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-25.3.1_ab80672b0a78b4c311679c6a29fdf07ed4d196b1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/media/gitfan/Media/Chrome Files/FlyChessModel/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.3.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
+        <dex dex="/media/gitfan/Media/Chrome Files/FlyChessModel/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-25.3.1_a9c735ddeb1344c81a0ec8c6d878fd54af23536a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/media/gitfan/Media/Chrome Files/FlyChessModel/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
+        <dex dex="/media/gitfan/Media/Chrome Files/FlyChessModel/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-25.3.1_64b843b9616ce4a4ad828f0249843e0ab5c58257.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/media/gitfan/Media/Chrome Files/FlyChessModel/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.3.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
+        <dex dex="/media/gitfan/Media/Chrome Files/FlyChessModel/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-25.3.1_e84aac8c12590503d60c7ce5ed75660a479fc113.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/media/gitfan/Media/Linux_Intellij_IDEA/FlyChessModel/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.3.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
+        <dex dex="/media/gitfan/Media/Linux_Intellij_IDEA/FlyChessModel/app/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-25.3.1_f78e0a103a42be0c2b11d164452c9366c392b24e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/media/gitfan/Media/Linux_Intellij_IDEA/FlyChessModel/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.3.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
+        <dex dex="/media/gitfan/Media/Linux_Intellij_IDEA/FlyChessModel/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-25.3.1_9366df7bbf9d3f9895ef64f79a089bb690a295d2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/media/gitfan/Media/Chrome Files/FlyChessModel/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.3.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
+        <dex dex="/media/gitfan/Media/Chrome Files/FlyChessModel/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-25.3.1_0c6ca5fcca51d77cabcba347bd4ffc00bd7cd10b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/media/gitfan/Media/Linux_Intellij_IDEA/FlyChessModel/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
+        <dex dex="/media/gitfan/Media/Linux_Intellij_IDEA/FlyChessModel/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-25.3.1_34574fb50084bf3e01c1d88bf69d3eb47bed6a4b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/media/gitfan/Software/Linux-software/android-sdk-linux/extras/android/m2repository/com/android/support/support-annotations/25.3.1/support-annotations-25.3.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
+        <dex dex="/media/gitfan/Media/Chrome Files/FlyChessModel/app/build/intermediates/pre-dexed/debug/support-annotations-25.3.1_5f5749d05c2e642940961917cf010b206a19a885.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/media/gitfan/Media/Chrome Files/FlyChessModel/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.3.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/media/gitfan/Media/Chrome Files/FlyChessModel/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-25.3.1_2e5f4a5dd6bf71454f9a1e78a85d6753a0fdab7d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/media/gitfan/Media/Linux_Intellij_IDEA/FlyChessModel/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.3.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
+        <dex dex="/media/gitfan/Media/Linux_Intellij_IDEA/FlyChessModel/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-25.3.1_fad7ea1927196ffdc66c8c2c7444ff1787832c20.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/media/gitfan/Media/Linux_Intellij_IDEA/FlyChessModel/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.3.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
+        <dex dex="/media/gitfan/Media/Linux_Intellij_IDEA/FlyChessModel/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-25.3.1_d83ed88ae21d2014eba7a0968184bd3e03a58800.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/media/gitfan/Media/Linux_Intellij_IDEA/FlyChessModel/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.3.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
+        <dex dex="/media/gitfan/Media/Linux_Intellij_IDEA/FlyChessModel/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-25.3.1_542ce735660fee31e46c87d82f35682d43a72524.jar" />
     </item>
 
 </items>
