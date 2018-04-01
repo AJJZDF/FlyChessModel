@@ -6,7 +6,9 @@
     </shared>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49e6f4e6-d9bf-4a65-bdca-191b61e04fae" name="Default" comment="" />
+    <list default="true" id="49e6f4e6-d9bf-4a65-bdca-191b61e04fae" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/gitfan/flychessmodel/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/gitfan/flychessmodel/MainActivity.java" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,14 +31,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/gitfan/flychessmodel/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="13716">
-              <caret line="779" column="5" lean-forward="true" selection-start-line="779" selection-start-column="5" selection-end-line="779" selection-end-column="5" />
+            <state relative-caret-position="279">
+              <caret line="775" column="5" lean-forward="true" selection-start-line="775" selection-start-column="5" selection-end-line="775" selection-end-column="5" />
               <folding>
-                <element signature="e#2230#5425#0" expanded="true" />
-                <element signature="e#5424#5425#0" expanded="true" />
+                <element signature="e#2267#5462#0" expanded="true" />
+                <element signature="e#5461#5462#0" expanded="true" />
+                <element signature="e#5615#5616#0" expanded="true" />
+                <element signature="e#5660#5661#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -68,7 +72,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameManager.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GameManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/FlyChess/GameManager.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="405">
@@ -2335,8 +2339,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/gitfan/flychessmodel/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/FlyChess/GameManager.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/gitfan/flychessmodel/MainActivity.java" />
       </list>
     </option>
   </component>
@@ -3019,12 +3023,12 @@
       <option name="presentableId" value="Default" />
       <updated>1522559134877</updated>
       <workItem from="1522559136437" duration="3201000" />
-      <workItem from="1522577751864" duration="15274000" />
+      <workItem from="1522577751864" duration="19032000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18475000" />
+    <option name="totallyTimeSpent" value="22233000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
@@ -3083,8 +3087,10 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#2230#5425#0" expanded="true" />
-            <element signature="e#5424#5425#0" expanded="true" />
+            <element signature="e#2267#5462#0" expanded="true" />
+            <element signature="e#5461#5462#0" expanded="true" />
+            <element signature="e#5615#5616#0" expanded="true" />
+            <element signature="e#5660#5661#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -3111,17 +3117,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/gitfan/flychessmodel/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="13716">
-          <caret line="779" column="5" lean-forward="true" selection-start-line="779" selection-start-column="5" selection-end-line="779" selection-end-column="5" />
-          <folding>
-            <element signature="e#2230#5425#0" expanded="true" />
-            <element signature="e#5424#5425#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/FlyChess/Chess.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="301">
@@ -3136,6 +3131,19 @@
           <caret line="1176" column="0" lean-forward="true" selection-start-line="1176" selection-start-column="0" selection-end-line="1176" selection-end-column="0" />
           <folding>
             <element signature="e#6116#6124#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/gitfan/flychessmodel/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="775" column="5" lean-forward="true" selection-start-line="775" selection-start-column="5" selection-end-line="775" selection-end-column="5" />
+          <folding>
+            <element signature="e#2267#5462#0" expanded="true" />
+            <element signature="e#5461#5462#0" expanded="true" />
+            <element signature="e#5615#5616#0" expanded="true" />
+            <element signature="e#5660#5661#0" expanded="true" />
           </folding>
         </state>
       </provider>

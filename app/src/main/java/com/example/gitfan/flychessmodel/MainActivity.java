@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static final int SELECT_CHESS = 7;//AI选择棋子
 
 
+    //给玩家显示有哪些可选的棋子
     private void set_available_chess(String allChoices)
     {
         String choicelist [] = allChoices.split("\\s+");//以空格分割字符串，得到每一个选择
@@ -48,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             int playerid = dameoThread.gameManager.getTurn();//ps：通过getTurn来获得当前的玩家是谁，然后去设置对应玩家的棋子为可用
             for(String choose:choicelist)
             {
-                //为了去掉可能存在的空白字符
+                //为了去掉可能存在的空白字符(当初没加这个判断，程序直接崩溃)
                 if(choose.length() != 0)
                 {
                     int choice =  Integer.parseInt(choose);//转化为数字
@@ -257,6 +258,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         //随机产生骰子点数
         public int newDice(){
+            //这里的骰子数要换成俊勇那边产生，不能由这里产生，这里仅仅是接收俊勇那边产生的随机数
+
+            //类似这样：
+            //step 1：发送一条指令给unity,让unity播放产生骰子，并播放动画
+            //step 2:从unity 接收产生的随机骰子数
+            //step 3： return 骰子数
+
             return ((int)(Math.random()*1000000))%6 + 1;
         }
 
@@ -286,7 +294,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 message.setData(data);
                 handler.sendMessage(message);
 
-
+                //AI睡眠改放到外层的run函数里
 //                //睡眠一下，免得AI的动作太快...
 //                try {
 //                    Thread.sleep(2000);
@@ -296,7 +304,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //
 
                 //扔完骰子记得给gameManager设置骰子！！！
-                //切记，很重要！！！
                 gameManager.setDice(dice);   //ps:这句放到最后比较好一点...
             }
             //如果是人
@@ -308,7 +315,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 handler.sendMessage(message);
 
                 //至于玩家点了扔骰子的按钮后要做什么呢？
-                //还是那句话：扔完骰子记得给gameManager设置骰子！！！切记，很重要！！！
+                //还是那句话：扔完骰子记得给gameManager设置骰子
                 //如果不设置的话，整个gameManager就卡死住了...
             }
         }
@@ -323,6 +330,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 //如果是AI，则让AI自己选择
                 int choose = gameManager.getAIChoice();
 
+                //发送消息告诉前端，AI选择了哪个棋子
                 Message message = new Message();
                 message.what = SELECT_CHESS;
                 Bundle data = new Bundle();
@@ -330,7 +338,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 message.setData(data);
                 handler.sendMessage(message);
 
-
+                //AI睡眠改放到外层的run函数里
 //                //睡眠一下，免得AI的动作太快...
 //                try {
 //                    Thread.sleep(2000);
@@ -368,13 +376,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
                 }
 
+                //发送消息告诉前端，有哪些可以选择的棋子
                 Bundle data = new Bundle();
                 data.putString("availablechess",allChoices);
                 message.setData(data);
                 handler.sendMessage(message);
             }
         }
-
     }
     DameoThread dameoThread;
 
@@ -388,7 +396,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private boolean canClicked[];//是否可以点击，选择棋子时有用到
 
-    //根据棋子的ID，返回选择le哪个棋子
+    //根据棋子的界面ID，返回玩家选择了哪个棋子
     private int chessToChoice(int viewer_id,int playerID)
     {
         if(viewer_id == R.id.blue0 || viewer_id == R.id.green0
@@ -429,6 +437,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view)
     {
+        //每个分支记得break
         switch (view.getId())
         {
             case R.id.thrownDice:
@@ -438,37 +447,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 //隐藏扔骰子的按钮（它在这轮游戏的使命完成了）
                 throwDice.setVisibility(View.INVISIBLE);
 
-                //然后下面根据点数播放扔骰子的动画
-
-                /****************************************/
+                //然后下面根据点数播放扔骰子的动画(ps：其实扔骰子的动画已经在newDice那里播放了，所以这段可以忽略）
+                /*************************************************************************/
 
                 //这里简单模拟一下这个过程
-
                 //Toast.makeText(MainActivity.this,"now,throwing a dice",Toast.LENGTH_SHORT).show();
                 showDice.setVisibility(View.VISIBLE);//先设置为可见
                 showDice.setText(diceToString(dice));
                 showActionList.setVisibility(View.INVISIBLE);
 
-
-                /*****************************************/
+                /*************************************************************************/
 
                 //扔完骰子记得给gameManager设置骰子！！！
-                //切记，很重要！！！
                 dameoThread.gameManager.setDice(dice);
                 break;
             }
             case R.id.red0:case R.id.red1:case R.id.red2:case R.id.red3:
             {
-                int playerid = dameoThread.gameManager.getTurn();
-                int choice = chessToChoice(view.getId(),Chess.RED);
+                int playerid = dameoThread.gameManager.getTurn();//获取当前轮到哪个玩家
+                int choice = chessToChoice(view.getId(),Chess.RED);//人点了哪个棋子
 
-                if(choice != -1)
+                if(choice != -1)//choice等于-1说明玩家点了不属于自己颜色的棋子，肯定不能被选择
                 {
+                    //否则，点了属于自己颜色的棋子
+                    //还要判断下这个棋子是不是能够被选择
                     if(canClicked[playerid*4 + choice])
                     {
                         brokenAll();//防止误触
                         //记得给gameManager设置棋子的选择！！！
-                        //切记，很重要！！！
                         dameoThread.gameManager.setChoice(choice);
                     }
                 }
@@ -485,7 +491,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     {
                         brokenAll();//防止误触
                         //记得给gameManager设置棋子的选择！！！
-                        //切记，很重要！！！
                         dameoThread.gameManager.setChoice(choice);
                     }
                 }
@@ -502,7 +507,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     {
                         brokenAll();//防止误触
                         //记得给gameManager设置棋子的选择！！！
-                        //切记，很重要！！！
                         dameoThread.gameManager.setChoice(choice);
                     }
                 }
@@ -519,12 +523,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     {
                         brokenAll();//防止误触
                         //记得给gameManager设置棋子的选择！！！
-                        //切记，很重要！！！
                         dameoThread.gameManager.setChoice(choice);
                     }
                 }
                 break;
             }
+            //点了托管按钮
             case R.id.switchMode:
             {
                 //因为这里是单机游戏，所以定义单机游戏：只有玩家一（红色）才是人，其他都是AI
@@ -543,10 +547,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                             //当前状态：现在是我的回合，并且我想切换到手动模式，并且还没有扔骰子
 
-                            //直接显示扔骰子的按钮，让玩家自己扔就完事了,但是还得注意下：设置玩家不能选择棋子，以免误触
+                            //下一步：直接显示扔骰子的按钮，切换到User模式，让玩家自己扔就完事了
+                            //但是还得注意下：设置玩家选择不能选择棋子，以免误触
 
                             brokenAll();
-                            throwDice.setVisibility(View.VISIBLE);
+                            throwDice.setVisibility(View.VISIBLE);//显示扔骰子的按钮
                             dameoThread.gameManager.switchToUser(Chess.RED);
                             switchMode.setText("托管");
 
@@ -556,18 +561,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         {
                             //当前状态：现在是我的回合，并且我现在想切换到AI托管模式，并且我还没有扔骰子（即没点击那个扔骰子的按钮）
 
-                            //下一步：直接取消显示扔骰子的按钮，并且随机生成一个骰子，并用gamemanager.setDice(),同时把设置玩家不能选择棋子
+                            //下一步：直接取消显示扔骰子的按钮，并且随机生成一个骰子，并用gamemanager.setDice(),同时把设置玩家不能选择棋子，以免误触
 
-                            //顺序好像挺重要的，先切换，再setDice
+                            //顺序好像挺重要的，先切换模式，再setDice
 
                             brokenAll();
-                            throwDice.setVisibility(View.INVISIBLE);
+                            throwDice.setVisibility(View.INVISIBLE);//取消显示扔骰子的按钮
                             dameoThread.gameManager.switchToAI(Chess.RED);//先切换
 
                             int dice = dameoThread.newDice();
 
-                            //播放扔骰子的动画
-                            /****************************************/
+                            //播放扔骰子的动画（ps：播放骰子动画其实在调用newDice()时已经播放了，这段可以忽略）
+                            /********************************************************************/
 
                             //这里简单模拟一下这个过程
 
@@ -576,7 +581,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             showDice.setText(diceToString(dice));
                             //showActionList.setVisibility(View.INVISIBLE);
 
-                            /*****************************************/
+                            /*******************************************************************/
 
                             dameoThread.gameManager.setDice(dice);//setDice 放最后
                             switchMode.setText("取消托管");
@@ -592,6 +597,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             if(dameoThread.gameManager.isAI(Chess.RED))
                             {
                                 //当前状态：我想切换到手动模式，并且已经扔了骰子了，并且我还没有选择棋子
+
                                 dameoThread.gameManager.switchToUser(Chess.RED);
                                 switchMode.setText("托管");
                             }
@@ -610,7 +616,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                                 if(choice != -1)
                                 {
-                                    chesslist[playerid][choice].setBackgroundColor(buttonColor(playerid));
+                                    chesslist[playerid][choice].setBackgroundColor(buttonColor(playerid));//形式上将棋子设置为高亮颜色表示AI选中的棋子
                                 }
                                 else
                                 {
@@ -625,6 +631,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         //已经选择棋子了
                         else
                         {
+                            //既然现在是我的回合，并且已经选好棋子了，那就可以直接切换呀
+
                             //如果以前是AI模式，说明现在需要取消托管
                             if(dameoThread.gameManager.isAI(Chess.RED))
                             {
@@ -675,6 +683,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //showActionList.setVisibility(View.INVISIBLE);
     }
 
+    //控件初始化 和 后台控制线程初始化
     private void init()
     {
         chesslist = new Button[4][];
@@ -735,15 +744,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         canClicked = new boolean[16];//16个棋子的按钮
         for(int i = 0 ; i < 16; i++) canClicked[i] = false;//初始化时默认棋子不可点击（即选择棋子)
 
+        //四人游戏
 //        dameoThread = new DameoThread(new GameManager(new PlayerAI(Chess.RED),
 //                new AutoAI(Chess.YELLOW),new AutoAI(Chess.BLUE),new AutoAI(Chess.GREEN)));
 
+        //三人游戏
         dameoThread = new DameoThread(new GameManager(new PlayerAI(Chess.RED),
                 new AutoAI(Chess.YELLOW),new AutoAI(Chess.BLUE)));
 
+        //二人游戏
 //        dameoThread = new DameoThread(new GameManager(new PlayerAI(Chess.RED), new AutoAI(Chess.BLUE)));
 
-        dameoThread.start();
+        dameoThread.start();//记得让后台线程开始执行
     }
 
     /***********************************************/
