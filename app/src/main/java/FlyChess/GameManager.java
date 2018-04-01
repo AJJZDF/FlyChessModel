@@ -1,11 +1,13 @@
 package FlyChess;
 
+import java.util.Scanner;
+
 /**
  * Created by gitfan on 3/29/18.
  */
 
 //单机版GameManager
-public class GameManager {
+public class GameManager{
 
     private BasicAI player[];
     private Chess chessboard[];
@@ -16,13 +18,15 @@ public class GameManager {
     private int turn;//当前轮到谁？
     private int choice;//当前的选择是什么?
 
-    public GameManager(BasicAI player1, BasicAI player2, BasicAI player3, BasicAI player4)
+    private int players_cnt = -1;
+
+    public GameManager(BasicAI red,BasicAI yellow,BasicAI blue,BasicAI green)
     {
         player = new BasicAI[4];
-        player[0] = player1;
-        player[1] = player2;
-        player[2] = player3;
-        player[3] = player4;
+        player[0] = red;
+        player[1] = yellow;
+        player[2] = blue;
+        player[3] = green;
         chessboard = new Chess[72];
         for(int i = 0 ; i < 72; i++)
         {
@@ -35,14 +39,82 @@ public class GameManager {
         waitingdice = true;
         waitingchoice = true;
 
+        players_cnt = 4;
+
     }
+    public GameManager(BasicAI red,BasicAI yellow,BasicAI blue)
+    {
+        player = new BasicAI[3];
+        player[0] = red;
+        player[1] = yellow;
+        player[2] = blue;
+        chessboard = new Chess[72];
+        for(int i = 0 ; i < 72; i++)
+        {
+            chessboard[i] = new Chess(i);
+        }
+        dice = -1;
+        choice = -1;
+        turn = 0;
+
+        waitingdice = true;
+        waitingchoice = true;
+
+        players_cnt = 3;
+    }
+    public GameManager(BasicAI red,BasicAI blue)
+    {
+        player = new BasicAI[3];//好像必须得三个...虽然只需要两个位置..但是蓝色玩家一定要处于第2个位置上（从0数起）
+        player[0] = red;
+        player[2] = blue;
+        chessboard = new Chess[72];
+        for(int i = 0 ; i < 72; i++)
+        {
+            chessboard[i] = new Chess(i);
+        }
+        dice = -1;
+        choice = -1;
+        turn = 0;
+
+        waitingdice = true;
+        waitingchoice = true;
+
+        players_cnt = 2;
+    }
+
+    //返回下一次轮到的位置
+    //如果是四个人，步长为1，如果是两个人，步长是2，如果是三个人，则红到黄，黄到蓝步长为1，但蓝不经过绿，直接到红，步长为2
+    private void nextTurn()
+    {
+        if(players_cnt == 4) turn = (turn + 1)%4;
+        else if(players_cnt == 2) turn = (turn +2)%4;
+        else if(players_cnt == 3)
+        {
+            //三个玩家
+            if(turn == 2) turn = 0;//蓝色 --> 红色
+            else turn = (turn + 1) %4;
+        }
+    }
+
+
     public boolean isGameOver()
     {
-        for(int i = 0 ; i < 4 ;i++){
-            if(player[i].isFinish()){
-                return true;
+
+        if(players_cnt == 4 || players_cnt == 3)
+        {
+            for(int i = 0 ; i < players_cnt ;i++){
+                if(player[i].isFinish()){
+                    return true;
+                }
             }
+            return false;
         }
+        else if(players_cnt == 2)
+        {
+            if(player[0].isFinish() || player[2].isFinish()) return true;
+            else return false;
+        }
+        //未定义的人数...直接返回false？
         return false;
     }
     //提供给扔骰子的按钮，按按钮时调用这个函数
@@ -171,9 +243,9 @@ public class GameManager {
         Chess chess;
         int playerid = getTurn();
         int chessindex = choice;
-        if(chessindex < 0 )
+        if(chessindex < 0)
         {
-            turn  = (turn + 1)%4;
+            nextTurn();
             return  queue;
         }
         else
@@ -197,7 +269,7 @@ public class GameManager {
                     queue.enqueue(action);
 
                     if(dice == 5){
-                        turn = (turn + 1) % 4;//轮到下一个人
+                        nextTurn(); //轮到下一个人
                         return queue;
                     }
                     else
@@ -207,7 +279,7 @@ public class GameManager {
                 }
                 else
                 {
-                    turn  = (turn + 1)%4;
+                    nextTurn();
                     return  queue;
                 }
             }
@@ -270,7 +342,7 @@ public class GameManager {
                 //正常步
                 if(!chess.isLucky())
                 {
-                    if(dice != 6) turn = (turn + 1)%4;
+                    if(dice != 6) nextTurn();
                     return queue;
                 }
                 //跳步！！！
@@ -336,7 +408,7 @@ public class GameManager {
                         player[playerid].setChess(chessindex,chess);
                     }
 
-                    if(dice != 6) turn = (turn + 1)%4;
+                    if(dice != 6) nextTurn();
                     return queue;
                 }
 
@@ -421,7 +493,7 @@ public class GameManager {
                         }
                     }
 
-                    if(dice != 6) turn = (turn + 1)%4;
+                    if(dice != 6) nextTurn();
                     return queue;
 
                 }
@@ -504,7 +576,7 @@ public class GameManager {
                         }
                     }
 
-                    if(dice != 6) turn = (turn + 1)%4;
+                    if(dice != 6) nextTurn();
                     return queue;
                 }
                 //普通线路
@@ -634,36 +706,36 @@ public class GameManager {
                             action = new Action(playerid,chessindex,Action.TURNRIGHT);
                             queue.enqueue(action);
 
-                             int attackpos = chess.getAttackPos();
-                             if(chess.attackTest(chessboard[attackpos]))
-                             {
-                                 action = new Action(playerid,chessindex,Action.QUICK_MOVE,3);
-                                 queue.enqueue(action);
+                            int attackpos = chess.getAttackPos();
+                            if(chess.attackTest(chessboard[attackpos]))
+                            {
+                                action = new Action(playerid,chessindex,Action.QUICK_MOVE,3);
+                                queue.enqueue(action);
 
-                                 //记得修改玩家的棋子和棋盘
-                                 for(Pair pair:chessboard[attackpos].getIndexlist())
-                                 {
-                                     //坠落，回到停机坪
-                                     player[pair.playerId].chesslist[pair.chessId].setFallen();
-                                     action = new Action(pair.playerId,pair.chessId,Action.FALLEN);
-                                     queue.enqueue(action);
-                                 }
+                                //记得修改玩家的棋子和棋盘
+                                for(Pair pair:chessboard[attackpos].getIndexlist())
+                                {
+                                    //坠落，回到停机坪
+                                    player[pair.playerId].chesslist[pair.chessId].setFallen();
+                                    action = new Action(pair.playerId,pair.chessId,Action.FALLEN);
+                                    queue.enqueue(action);
+                                }
 
-                                 //清空中间的棋盘
-                                 chessboard[attackpos].setStatus(Chess.STATUS_EMPTY);
-                                 chessboard[attackpos].clearIndexList();
+                                //清空中间的棋盘
+                                chessboard[attackpos].setStatus(Chess.STATUS_EMPTY);
+                                chessboard[attackpos].clearIndexList();
 
 
-                                 //踢完人继续走
-                                 action = new Action(playerid,chessindex,Action.QUICK_MOVE,3);
-                                 queue.enqueue(action);
-                             }
-                             else
-                             {
-                                 //直接飞过对面
-                                 action = new Action(playerid,chessindex,Action.QUICK_MOVE,6);
-                                 queue.enqueue(action);
-                             }
+                                //踢完人继续走
+                                action = new Action(playerid,chessindex,Action.QUICK_MOVE,3);
+                                queue.enqueue(action);
+                            }
+                            else
+                            {
+                                //直接飞过对面
+                                action = new Action(playerid,chessindex,Action.QUICK_MOVE,6);
+                                queue.enqueue(action);
+                            }
 
                             //先清除棋子以前的棋盘
                             chessboard[chess.getPos()].setStatus(Chess.STATUS_EMPTY);
@@ -806,19 +878,20 @@ public class GameManager {
                             chessboard[chess.getPos()] = new Chess(chess);
                         }
                     }
-                    if(dice != 6) turn = (turn + 1)%4;
+                    if(dice != 6) nextTurn();
 
                     return queue;
                 }
             }
             else
             {
-                if(dice != 6) turn = (turn + 1)%4;
+                if(dice != 6) nextTurn();
                 return queue;
             }
         }
     }
-//    public void run() {
+
+    //    public void run() {
 //
 //        Queue<Action> actions;
 //        String str ="";
@@ -846,7 +919,92 @@ public class GameManager {
 //
 //            //后面的服务器模型时会用到
 //    }
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
+        //三个玩家必须要初始化为红，黄,蓝
+        GameManager gameManager_three = new GameManager(new AutoAI(Chess.RED),new AutoAI(Chess.YELLOW),new AutoAI(Chess.BLUE));
+
+        //两个玩家必须要初始化为红，蓝
+        GameManager gameManager_two = new GameManager(new AutoAI(Chess.RED),new AutoAI(Chess.BLUE));
+
+        String str;
+
+        while(!gameManager_three.isGameOver())
+        {
+            if(gameManager_three.getTurn() == Chess.RED) str = "红色玩家";
+            else if(gameManager_three.getTurn() == Chess.YELLOW) str = "黄色玩家";
+            else if(gameManager_three.getTurn() == Chess.BLUE) str = "蓝色玩家";
+            else str = "绿色玩家";
+
+            System.out.println("现在轮到" + str);
+
+            System.out.println("throwing a dice...");
+            Thread.sleep(2);
+
+            int dice = ((int)(Math.random()*1000000))%6 + 1;
+
+            System.out.println("dice: " + dice);
+
+            gameManager_three.setDice(dice);
+
+            System.out.println("selecting a choice...");
+
+            Thread.sleep(1);
+
+            int choice = gameManager_three.getAIChoice();
+
+            gameManager_three.setChoice(choice);
+
+            System.out.println("choice: " + choice);
+
+
+            Queue<Action> actions = gameManager_three.actionlist();
+
+            for(Action action:actions)
+            {
+                System.out.println(action);
+            }
+            Thread.sleep(1);
+        }
+
+        System.out.println("/****************************************************************/");
+
+        while(!gameManager_two.isGameOver())
+        {
+            if(gameManager_two.getTurn() == Chess.RED) str = "红色玩家";
+            else if(gameManager_two.getTurn() == Chess.YELLOW) str = "黄色玩家";
+            else if(gameManager_two.getTurn() == Chess.BLUE) str = "蓝色玩家";
+            else str = "绿色玩家";
+
+            System.out.println("现在轮到" + str);
+
+            System.out.println("throwing a dice...");
+            Thread.sleep(2);
+
+            int dice = ((int)(Math.random()*1000000))%6 + 1;
+
+            System.out.println("dice: " + dice);
+
+            gameManager_two.setDice(dice);
+
+            System.out.println("selecting a choice...");
+
+            Thread.sleep(1);
+
+            int choice = gameManager_two.getAIChoice();
+
+            gameManager_two.setChoice(choice);
+
+            System.out.println("choice: " + choice);
+
+
+            Queue<Action> actions = gameManager_two.actionlist();
+
+            for(Action action:actions)
+            {
+                System.out.println(action);
+            }
+            Thread.sleep(1);
+        }
     }
 }

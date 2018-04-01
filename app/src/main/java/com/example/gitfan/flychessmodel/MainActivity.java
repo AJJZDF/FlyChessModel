@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             //然后就可以等用户自己选择棋子了
             //选了棋子之后会做什么？？
-            //其实记得最后调用gameManager.setChoice(-1)，就OK的
+            //其实记得最后调用gameManager.setChoice(choice)，就OK的
         }
     }
 
@@ -560,8 +560,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         canClicked = new boolean[16];//16个棋子的按钮
         for(int i = 0 ; i < 16; i++) canClicked[i] = false;//初始化时默认棋子不可点击（即选择棋子)
 
-        dameoThread = new DameoThread(new GameManager(new PlayerAI(Chess.RED),
-                new AutoAI(Chess.YELLOW),new AutoAI(Chess.BLUE),new AutoAI(Chess.GREEN)));
+//        dameoThread = new DameoThread(new GameManager(new AutoAI(Chess.RED),
+//                new AutoAI(Chess.YELLOW),new AutoAI(Chess.BLUE),new AutoAI(Chess.GREEN)));
+
+//        dameoThread = new DameoThread(new GameManager(new AutoAI(Chess.RED),
+//                new AutoAI(Chess.YELLOW),new AutoAI(Chess.BLUE)));
+
+        dameoThread = new DameoThread(new GameManager(new AutoAI(Chess.RED), new AutoAI(Chess.BLUE)));
+
         dameoThread.start();
     }
 
