@@ -49,6 +49,7 @@ public class ShowRoom extends AppCompatActivity  implements View.OnClickListener
                 case UPDATE_ONLINE_ROOM:
                 {
                     Bundle bundle = message.getData();
+                    //形式:roomname_roomowner_1/4
                     Vector<String> rooms = (Vector<String>) bundle.getSerializable("online_rooms");
 
                     online_rooms = new String[rooms.size()];
