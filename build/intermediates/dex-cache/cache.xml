@@ -3,6 +3,15 @@
 
     <item
         is-multidex="false"
+        jar="/media/gitfan/Media/Linux_Intellij_IDEA/FlyChessModel/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/25.3.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="95519720620b553f63afc789beba9ad582807f7c">
+        <dex dex="/media/gitfan/Media/Linux_Intellij_IDEA/FlyChessModel/app/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-25.3.1_0fd35cab6a626459ca06d231405a395ae9ea51f9.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/media/gitfan/Media/Chrome Files/FlyChessModel/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.3.1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
@@ -162,6 +171,15 @@
         revision="25.0.2"
         sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
         <dex dex="/media/gitfan/Media/Linux_Intellij_IDEA/FlyChessModel/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-25.3.1_d83ed88ae21d2014eba7a0968184bd3e03a58800.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/media/gitfan/Media/Linux_Intellij_IDEA/FlyChessModel/app/build/intermediates/exploded-aar/com.android.support/gridlayout-v7/25.3.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="3a1bac2cc31df44dbf1f9bbf2c675319503c9271">
+        <dex dex="/media/gitfan/Media/Linux_Intellij_IDEA/FlyChessModel/app/build/intermediates/pre-dexed/debug/com.android.support-gridlayout-v7-25.3.1_68a587ec09d100a53c2f04a968fb01ff70f74d60.jar" />
     </item>
     <item
         is-multidex="false"
